@@ -17,7 +17,6 @@ import java.util.NoSuchElementException;
  * DataSourceUtils.releaseConnection()
  */
 @Slf4j
-@Repository
 @RequiredArgsConstructor
 public class MemberRepositoryV3 {
 
