@@ -32,15 +32,6 @@ public class MemberRepositoryV5 implements MemberRepository {
         return template.queryForObject(sql, memberRowMapper(), memberId);
     }
 
-    private RowMapper<Member> memberRowMapper() {
-        return (rs, rowNum) -> {
-            Member member = new Member();
-            member.setMemberId(rs.getString("member_id"));
-            member.setMoney(rs.getInt("money"));
-            return member;
-        };
-    }
-
     public void update(String memberId, int money) {
         String sql = "UPDATE member SET money=? WHERE member_id = ?";
         template.update(sql, money, memberId);
@@ -49,5 +40,13 @@ public class MemberRepositoryV5 implements MemberRepository {
     public void delete(String memberId) {
         String sql = "DELETE FROM member WHERE member_id = ?";
         template.update(sql, memberId);
+    }
+    private RowMapper<Member> memberRowMapper() {
+        return (rs, rowNum) -> {
+            Member member = new Member();
+            member.setMemberId(rs.getString("member_id"));
+            member.setMoney(rs.getInt("money"));
+            return member;
+        };
     }
 }
