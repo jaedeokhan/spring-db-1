@@ -16,7 +16,6 @@ import java.sql.SQLException;
  */
 @Slf4j
 @RequiredArgsConstructor
-@Service
 public class MemberServiceV3_1 {
 
     private final PlatformTransactionManager transactionManager;
